@@ -1,18 +1,8 @@
-import { TOGGLE_TODO, ADD_TODO } from "./action_types";
+import { RESPONSE } from "./action_types";
 
-let nextTodoId = 0;
-
-export function addTodo(text) {
+export function answerQuestion(answer) {
   return {
-    type: ADD_TODO,
-    id: nextTodoId++,
-    text
-  };
-}
-
-export function toggleTodo(id) {
-  return {
-    type: TOGGLE_TODO,
-    id
+    type: RESPONSE,
+    answer: answer
   };
 }
