@@ -1,8 +1,9 @@
 import { RESPONSE } from "./action_types";
 
-export function answerQuestion(answer) {
+export function answerQuestion(id,answer) {
   return {
     type: RESPONSE,
-    answer: answer
+    answer: answer,
+    id: id
   };
 }
