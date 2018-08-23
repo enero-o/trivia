@@ -14,7 +14,7 @@ const Root = ({ store }) => {
   return (
     <Provider store={store}>
       <Router>
-        <div>
+        <div className="flex-container">
           <Route exact path="/" component={WelcomeScreen} />
           <Route exact path="/quiz" component={App} />
         </div>
