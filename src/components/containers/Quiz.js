@@ -1,5 +1,5 @@
-import { answerQuestion } from "./../../redux/actions/action_creators";
-import {connect} from "react-redux";
+import { answerQuestion, restart } from "./../../redux/actions/action_creators";
+import { connect } from "react-redux";
 import Quiz from "./../presenters/Quiz";
 
 const mapStateToProps = state => {
@@ -10,6 +10,9 @@ const mapDispatchToProps = dispatch => {
   return {
     onAnswerClick: (id, answer) => {
       dispatch(answerQuestion(id, answer));
+    },
+    restart: () => {
+      dispatch(restart());
     }
   };
 };
