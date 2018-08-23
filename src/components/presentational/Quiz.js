@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import {calculateResults} from "./../../helpers";
 
 const Quiz = props => {
   console.log("poep", props);
@@ -10,9 +11,14 @@ const Quiz = props => {
   if (index < questionCount) {
     let activeQuestion = props.store.questions[index];
     return (
-      <div>
-        <div>{activeQuestion.question}</div>;
+      <div className="flex-item">
+        <div>
+          <small>Category - {activeQuestion.category}</small>
+          <small>Difficulty - {activeQuestion.difficulty}</small>
+          <p>{activeQuestion.question}</p>
+        </div>
         <button
+          className="green"
           onClick={() => {
             props.onAnswerClick(activeQuestion.id, true);
           }}
@@ -20,6 +26,7 @@ const Quiz = props => {
           TRUE
         </button>
         <button
+          className="red"
           onClick={() => {
             props.onAnswerClick(activeQuestion.id, false);
           }}
@@ -31,34 +38,24 @@ const Quiz = props => {
   } else {
     let result = calculateResults(props.store.questions);
     return (
-      <div>
+      <div className="test">
         <p>
-          The end, {result}
-          /{questionCount}
+          The end, your score is 
         </p>
-        <button
+        <h1>{result}/{questionCount}</h1>
+        <button className="green"
           onClick={() => {
             props.restart();
           }}
         >
           Play Again
         </button>
-
         <Link to="/">Quit</Link>
       </div>
     );
   }
 };
 
-function calculateResults(data) {
-  let result = 0;
-  data.forEach(item => {
-    if (item.answer === item.userAnswer) {
-      result = result + 1;
-    }
-  });
-  return result;
-}
 
 Quiz.propTypes = {
   onAnswerClick: PropTypes.func.isRequired,
