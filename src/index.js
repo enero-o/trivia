@@ -8,7 +8,7 @@ import App from './components/containers/Quiz';
 
 const store = createStore(response);
 console.log(store.getState());
-console.log(App);
+console.log(<App/>);
 
 ReactDOM.render(
   <Provider store={store}>

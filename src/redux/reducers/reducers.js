@@ -1,6 +1,5 @@
 import { RESPONSE, NEXT_QUESTION } from "./../actions/action_types";
 import questions from "./../../questions";
-import { combineReducers } from "redux";
 
 let intialState = {
   questions: questions,

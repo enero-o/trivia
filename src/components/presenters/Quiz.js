@@ -1,42 +1,35 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { RESPONSE } from "./../../redux/actions/action_types";
-import Question from "./Question";
 
-const Quiz = ({ question, onAnswerClick }) => {
-  return (
-    <div>
-      <Question
-        question={
-          this.props.store.getState().questions[
-            this.props.store.getState().activeIndex
-          ].question
-        }
-      />
-      <button
-        onClick={() => {
-          this.props.store.dispatch({
-            type: RESPONSE,
-            answer: true,
-            id: this.props.store.getState().activeIndex
-          });
-        }}
-      >
-        TRUE
-      </button>
-      <button
-        onClick={() => {
-          this.props.store.dispatch({
-            type: RESPONSE,
-            answer: false,
-            id: this.props.store.getState().activeIndex
-          });
-        }}
-      >
-        FALSE
-      </button>
-    </div>
-  );
+const Quiz = props => {
+  console.log("poep", props);
+  let index = props.store.activeIndex;
+  let questionCount = props.store.questions.length;
+  if(index < questionCount){
+    let activeQuestion = props.store.questions[index].question;
+    return (
+      <div>
+        <div>{activeQuestion}</div>;
+        <button
+          onClick={() => {
+            props.onAnswerClick(index, true);
+          }}
+        >
+          TRUE
+        </button>
+        <button
+          onClick={() => {
+            props.onAnswerClick(index, true);
+          }}
+        >
+          FALSE
+        </button>
+      </div>
+    );
+  }
+  else{
+    return <p>The end</p>
+  }
 };
 
 Quiz.propTypes = {
@@ -49,6 +42,5 @@ Quiz.propTypes = {
     }).isRequired
   ).isRequired
 };
-
 
 export default Quiz;

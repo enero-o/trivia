@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import Quiz from "./../presenters/Quiz";
 
 const mapStateToProps = state => {
-  return { questions: state };
+  return { store: state };
 };
 
 const mapDispatchToProps = dispatch => {
@@ -13,6 +13,8 @@ const mapDispatchToProps = dispatch => {
     }
   };
 };
+
+//mapstatetoprops and mapdispach to props combines them into one prop
 
 const App = connect(
   mapStateToProps,
