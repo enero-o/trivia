@@ -5,8 +5,8 @@ import "./index.css";
 import { createStore } from "redux";
 import reducer from "./redux/reducers/reducers";
 import { Provider } from "react-redux";
-import App from "./components/containers/Quiz";
-import WelcomeScreen from "./components/containers/WelcomeScreen";
+import App from "./components/container/Quiz";
+import WelcomeScreen from "./components/container/WelcomeScreen";
 
 const store = createStore(reducer);
 

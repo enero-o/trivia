@@ -1,11 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-console.log(<Link />);
 
 const WelcomeScreen = props => {
-  console.log(props);
-
   return (
     <div className="flex-item">
       <h2>Welcome to the Trivia Challenge!</h2>

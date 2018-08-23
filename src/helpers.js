@@ -18,3 +18,17 @@ export function shuffle(array) {
     return array;
   }
 }
+
+export function calculateResults(data) {
+  let result = 0;
+  if (Array.isArray(data) === true) {
+    data.forEach(item => {
+      if (item.correct_answer === item.userAnswer) {
+        result = result + 1;
+      }
+    });
+    return result;
+  } else {
+    return result;
+  }
+}

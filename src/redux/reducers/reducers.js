@@ -1,6 +1,6 @@
 import { RESPONSE, RESTART } from "./../actions/action_types";
 import questions from "./../../questions";
-import { shuffle } from "./../helpers";
+import { shuffle } from "./../../helpers"
 //shuffle, shuffles and returns only 10 items from the array
 
 let intialState = {

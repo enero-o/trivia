@@ -1,6 +1,6 @@
 import { restart } from "./../../redux/actions/action_creators";
 import { connect } from "react-redux";
-import WelcomeScreen from "./../presenters/WelcomeScreen";
+import WelcomeScreen from "./../presentational/WelcomeScreen";
 
 const mapDispatchToProps = dispatch => {
   return {

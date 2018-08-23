@@ -1,6 +1,6 @@
 import { answerQuestion, restart } from "./../../redux/actions/action_creators";
 import { connect } from "react-redux";
-import Quiz from "./../presenters/Quiz";
+import Quiz from "./../presentational/Quiz";
 
 const mapStateToProps = state => {
   return { store: state };

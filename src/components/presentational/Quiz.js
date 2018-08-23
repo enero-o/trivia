@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import {calculateResults} from "./../../helpers";
 
 const Quiz = props => {
   console.log("poep", props);
@@ -39,9 +40,10 @@ const Quiz = props => {
     return (
       <div className="test">
         <p>
-          The end, {result}/{questionCount}
+          The end, your score is 
         </p>
-        <button
+        <h1>{result}/{questionCount}</h1>
+        <button className="green"
           onClick={() => {
             props.restart();
           }}
@@ -54,15 +56,6 @@ const Quiz = props => {
   }
 };
 
-function calculateResults(data) {
-  let result = 0;
-  data.forEach(item => {
-    if (item.correct_answer === item.userAnswer) {
-      result = result + 1;
-    }
-  });
-  return result;
-}
 
 Quiz.propTypes = {
   onAnswerClick: PropTypes.func.isRequired,
