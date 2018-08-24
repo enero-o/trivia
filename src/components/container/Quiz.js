@@ -19,9 +19,9 @@ const mapDispatchToProps = dispatch => {
 
 //mapstatetoprops and mapdispach to props combines them into one prop
 
-const App = connect(
+const quizContainer = connect(
   mapStateToProps,
   mapDispatchToProps
 )(Quiz);
 
-export default App;
+export default quizContainer;

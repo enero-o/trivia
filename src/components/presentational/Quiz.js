@@ -1,15 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import {calculateResults} from "./../../helpers";
+import { calculateResults } from "./../../helpers";
 
 const Quiz = props => {
-  console.log("poep", props);
-  let index = props.store.activeIndex;
+  console.log("props are", props);
+  let activeIndex = props.store.activeIndex;
   let questionCount = props.store.questions.length;
 
-  if (index < questionCount) {
-    let activeQuestion = props.store.questions[index];
+  if (questionCount === 0) {
+    // no more questions,
+    return (
+      <div>
+        <p>You are out of trials, take a break and try again later</p>
+      </div>
+    );
+  }
+
+  if (activeIndex < questionCount) {
+    // quiz is active
+    let activeQuestion = props.store.questions[activeIndex];
     return (
       <div className="flex-item">
         <div>
@@ -36,14 +46,16 @@ const Quiz = props => {
       </div>
     );
   } else {
+    //active question is above the question count, show result
     let result = calculateResults(props.store.questions);
     return (
       <div className="test">
-        <p>
-          The end, your score is 
-        </p>
-        <h1>{result}/{questionCount}</h1>
-        <button className="green"
+        <p>The end, your score is</p>
+        <h1>
+          {result}/{questionCount}
+        </h1>
+        <button
+          className="green"
           onClick={() => {
             props.restart();
           }}
@@ -56,16 +68,20 @@ const Quiz = props => {
   }
 };
 
-
 Quiz.propTypes = {
   onAnswerClick: PropTypes.func.isRequired,
-  questions: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      question: PropTypes.string.isRequired,
-      answer: PropTypes.bool.isRequired
-    }).isRequired
-  ).isRequired
+  store: PropTypes.shape({
+    activeIndex: PropTypes.number.isRequired,
+    questions: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        category: PropTypes.string.isRequired,
+        difficulty: PropTypes.string.isRequired,
+        question: PropTypes.string.isRequired,
+        correct_answer: PropTypes.bool.isRequired
+      }).isRequired
+    ).isRequired
+  }).isRequired
 };
 
 export default Quiz;

@@ -169,7 +169,7 @@ const questions = [
     difficulty: "medium",
     question:
       "In the TV series Red Dwarf, Kryten's full name is Kryten 2X4B-523P.",
-    correct_answer: "True",
+    correct_answer: true,
     incorrect_answers: ["False"]
   },
   {

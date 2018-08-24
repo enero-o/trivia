@@ -12,9 +12,9 @@ const mapDispatchToProps = dispatch => {
 
 //mapstatetoprops and mapdispach to props combines them into one prop
 
-const App = connect(
+const wsContainer = connect(
   null,
   mapDispatchToProps
 )(WelcomeScreen);
 
-export default App;
+export default wsContainer;
