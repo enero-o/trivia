@@ -54,5 +54,20 @@ small {
   font-size: 15px;
   color: white;
   display: block;
-  margin:10px
+  margin: 10px;
+}
+li {
+  padding: 10px;
+}
+.fa {
+  margin-right: 20px;
+}
+ul {
+  list-style-type: none;
+}
+.fa-times-circle{
+  color: red
+}
+.fa-check-square{
+  color: green
 }

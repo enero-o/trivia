@@ -17,7 +17,7 @@ function reducer(state = intialState, action) {
         }
         return {
           ...question,
-          userAnswer: action.answer
+          user_answer: action.answer
         };
       });
       let newState = {
@@ -27,7 +27,7 @@ function reducer(state = intialState, action) {
       return newState;
 
     case RESTART:
-    //use a new state here, for new set of questions
+    //resetstate here, with new set of questions
       return  {
         questions: shuffle(questions).splice(0, 10),
         activeIndex: 0
