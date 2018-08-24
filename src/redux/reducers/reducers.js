@@ -28,7 +28,10 @@ function reducer(state = intialState, action) {
 
     case RESTART:
     //use a new state here, for new set of questions
-      return intialState
+      return  {
+        questions: shuffle(questions).splice(0, 10),
+        activeIndex: 0
+      };
     default:
       return state;
   }
