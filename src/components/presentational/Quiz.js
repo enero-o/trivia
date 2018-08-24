@@ -49,11 +49,27 @@ const Quiz = props => {
     //active question is above the question count, show result
     let result = calculateResults(props.store.questions);
     return (
-      <div className="test">
-        <p>The end, your score is</p>
+      <div>
+        <p>The End, your score is</p>
         <h1>
-          {result}/{questionCount}
+          <strong>{result}</strong>/{questionCount}
         </h1>
+        <ul>
+          {props.store.questions.map((item, index) => {
+            return (
+              <li key={index}>
+                <span
+                  className={
+                    item.correct_answer === item.user_answer
+                      ? "fa fa-check-square"
+                      : "fa fa-times-circle"
+                  }
+                />
+                {item.question}
+              </li>
+            );
+          })}
+        </ul>
         <button
           className="green"
           onClick={() => {

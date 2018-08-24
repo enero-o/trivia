@@ -23,7 +23,7 @@ export function calculateResults(data) {
   let result = 0;
   if (Array.isArray(data) === true) {
     data.forEach(item => {
-      if (item.correct_answer === item.userAnswer) {
+      if (item.correct_answer === item.user_answer) {
         result = result + 1;
       }
     });
